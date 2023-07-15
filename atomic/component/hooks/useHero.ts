@@ -1,0 +1,4 @@
+const useHero = ()=>{
+
+}
+export {useHero}
