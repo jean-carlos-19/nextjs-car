@@ -28,7 +28,8 @@
       "@/global/*": ["./global/*"],
       "@/atomic/element": ["./atomic/element"],
       "@/atomic/component": ["./atomic/component"],
-      "@/atomic/design": ["./atomic/design"]
+      "@/atomic/design": ["./atomic/design"],
+      "@/types": ["./types"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
