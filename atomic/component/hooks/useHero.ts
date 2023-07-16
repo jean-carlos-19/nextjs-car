@@ -1,4 +1,5 @@
-const useHero = ()=>{
-
-}
-export {useHero}
+const useHero = () => {
+  const handleScroll = () => {};
+  return { handleScroll };
+};
+export { useHero };

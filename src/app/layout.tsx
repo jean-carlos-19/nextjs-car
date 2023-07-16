@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import {Footer,NavBar} from '@/atomic/design'
+import { Footer, NavBar } from "@/atomic/design";
 
 export const metadata: Metadata = {
   title: "Car Hub",
@@ -18,8 +18,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
-        </body>
+      </body>
     </html>
   );
 }
-  

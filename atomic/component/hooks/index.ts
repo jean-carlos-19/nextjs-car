@@ -1,1 +1,1 @@
-export {useHero} from "./useHero"
+export { useHero } from "./useHero";
