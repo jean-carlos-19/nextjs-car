@@ -7,4 +7,8 @@ interface CustomButtonProps {
     handleClick?:MouseEventHandler<HTMLButtonElement>;
 }
 
-export type {CustomButtonProps}
+interface CustomFilterProps{
+    title:"year" | "fuel"
+}
+
+export type {CustomButtonProps, CustomFilterProps}
