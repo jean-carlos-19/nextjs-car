@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
 interface CustomButtonProps {
     title:string;
@@ -12,6 +12,7 @@ interface CustomFilterProps{
 }
 
 interface searchManuFacturerProps{
-
+    manuFacturer:string;
+    setManuFacturer:Dispatch<SetStateAction<string>>;
 }
-export type {CustomButtonProps, CustomFilterProps} 
+export type {CustomButtonProps, CustomFilterProps,searchManuFacturerProps} 
