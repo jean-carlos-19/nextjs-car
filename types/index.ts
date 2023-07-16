@@ -11,4 +11,7 @@ interface CustomFilterProps{
     title:"year" | "fuel"
 }
 
-export type {CustomButtonProps, CustomFilterProps}
+interface searchManuFacturerProps{
+
+}
+export type {CustomButtonProps, CustomFilterProps} 
