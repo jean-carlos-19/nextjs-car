@@ -1,4 +1,7 @@
+import { SearchModel } from "@/app/models";
+import { FormikErrors } from "formik";
 import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+
 
 interface CustomButtonProps {
     title:string;
@@ -12,7 +15,7 @@ interface CustomFilterProps{
 }
 
 interface searchManuFacturerProps{
-    manuFacturer:string;
-    setManuFacturer:Dispatch<SetStateAction<string>>;
+    value:string;
+    handleChangue:any;
 }
 export type {CustomButtonProps, CustomFilterProps,searchManuFacturerProps} 
