@@ -4,7 +4,10 @@ import {  MouseEventHandler } from "react";
 interface CustomButtonProps {
     title:string;
     containerStyles? :string;
+    textStyles?:string;
+    rightIcon:string;
     btnType?:"button" | "submit";
+    isDisabled?:boolean;
     handleClick?:MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -18,6 +21,7 @@ interface searchManuFacturerProps{
 }
 
 interface CarProps{
+  car:{
     city_mpg:number
     class:string
     combination_mpg:number
@@ -30,5 +34,6 @@ interface CarProps{
     model:string
     transmission:string
     year:number
+  }
 }
 export type {CustomButtonProps, CustomFilterProps,searchManuFacturerProps, CarProps} 

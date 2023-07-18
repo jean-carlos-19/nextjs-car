@@ -1,3 +1,3 @@
 export { CustomButton } from "./CustomButton";
-export {CustomFilter} from "./CustomFilter";
-export {SearchManuFacturer} from "./SearchManuFacturer";
+export { CustomFilter } from "./CustomFilter";
+export { SearchManuFacturer } from "./SearchManuFacturer";

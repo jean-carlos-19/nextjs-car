@@ -1,15 +1,78 @@
-import React from 'react'
+import Image from 'next/image'
+import { CarProps } from "@/types";
+import React from "react";
+import { useCar } from "./hooks";
+import { CustomButton } from '@/atomic/element';
 
-const CarCard = () => {
+const CarCard = (props: CarProps) => {
+  const { city_mpg, drive, model, make, transmission, year } = props.car;
+  const {carRent, setIsOpen} = useCar(props)
+
   return (
-    <div className='car-card-group' >
+    <div className="car-card group">
       <div className="car-card__content">
         <h2 className="car-card__content-title">
-          {}
+          {make} {model}
         </h2>
       </div>
-    </div>
-  )
-}
+      <p className="flex mt-6 text-[32px] font-extrabold">
+        <span className="self-start text-[14px] font-semibold" >
+          $
+        </span>
+          {carRent}
+        <span className="self-end text-[14px] font-medium" >
+          /day
+        </span>
+      </p>
 
-export {CarCard}
+      <figure className="relative w-full h-40 my-3 object-contain">
+        <Image 
+          src={"/hero.png"} 
+          alt='car model' 
+          fill 
+          priority 
+          className='object-contain'
+        />
+      </figure>
+      <div className="relative flex w-full mt-2">
+        <div className="flex group-hover:invisible w-full justify-between text-gray">
+          <figure className="flex flex-col justify-center items-center gap-2">
+            <Image src={"/gas.svg"} alt='steering whell' width={20} height={20} />
+            <p className="text-[14px]">
+              {transmission === "a" ? "Automatic":"Manual"}
+            </p>
+          </figure>
+        </div>
+        <div className="flex group-hover:invisible w-full justify-between text-gray">
+          <figure className="flex flex-col justify-center items-center gap-2">
+            <Image src={"/tire.svg"} alt='tire' width={20} height={20} />
+            <p className="text-[14px]">
+              {drive.toUpperCase()}
+            </p>
+          </figure>
+        </div>
+        <div className="flex group-hover:invisible w-full justify-between text-gray">
+          <figure className="flex flex-col justify-center items-center gap-2">
+            <Image src={"/gas.svg"} alt='steering whell' width={20} height={20} />
+            <p className="text-[14px]">
+              {city_mpg} MPG
+            </p>
+          </figure>
+        </div>
+
+        <div className="car-card__btn-container">
+          <CustomButton 
+            title={'view More'} 
+            containerStyles='w-full py-[1rem] rounded-full bg-primary-blue'
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"     
+            handleClick={()=>setIsOpen(true)} 
+          />
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export { CarCard };

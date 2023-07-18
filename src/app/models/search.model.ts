@@ -1,4 +1,4 @@
-interface SearchModel{
-    search:string;
+interface SearchModel {
+  search: string;
 }
-export type { SearchModel }
+export type { SearchModel };

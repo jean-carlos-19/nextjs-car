@@ -1,10 +1,14 @@
-import { useState } from "react"
+"use client";
+import { useState } from "react";
+import { SearchModel } from "@/models";
 
-const useSearchBar =()=>{
-    const [manuFacturer,setManuFacturer] = useState('');
-    const handleSearch =()=>{
+const search: SearchModel = {
+  search: "",
+};
 
-    }
-    return {manuFacturer,setManuFacturer,handleSearch}
-}
-export {useSearchBar}
+const useSearchBar = () => {
+  const [entity] = useState(search);
+
+  return { entity };
+};
+export { useSearchBar };

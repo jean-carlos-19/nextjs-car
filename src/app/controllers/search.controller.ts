@@ -1,6 +1,6 @@
-import { AxiosResponse } from "axios"
+import { AxiosResponse } from "axios";
 
 interface SearchController {
-    search(params:URLSearchParams):Promise<AxiosResponse<any>>
+  search(params: URLSearchParams): Promise<AxiosResponse<any>>;
 }
-export type { SearchController }
+export type { SearchController };

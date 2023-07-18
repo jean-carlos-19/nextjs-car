@@ -1,1 +1,1 @@
-export type {SearchController} from "./search.controller";
+export type { SearchController } from "./search.controller";
