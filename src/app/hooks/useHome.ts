@@ -1,28 +1,31 @@
 import { useCallback, useEffect, useState } from 'react'
 import { SearchService } from '@/services'
+import { AxiosError } from 'axios';
 
-const useHome =()=>{
+const useHome = () => {
     const service: SearchService = SearchService.getService();
     const [isDataEmpty, setDataEmpty] = useState(false);
-    const [data,setData]=useState([])
-  
-    useEffect(() => {
-      searchCar();
-    }, [])
-  
+    const [data, setData] = useState([])
+    const [msj,setMsj] = useState('');
+    
+        useEffect(() => {
+            searchCar();
+        }, [])
+
     const searchCar = useCallback(async () => {
-      try {
-        const rs = await service.search(new URLSearchParams([["model", "corola"]]));
-        const { data } = rs;
-        const empty: boolean = Array.isArray(data) || data.length < 1 || !data;
-        setDataEmpty(empty);
-        setData(data)
-  
-      } catch (error) {
-        console.error(error)
-      }
+        try {
+            const rs = await service.search(new URLSearchParams([["model", ""]]));
+            const { data } = rs;
+            const empty: boolean = Array.isArray(data) || data.length < 1 || !data;
+            setDataEmpty(empty);
+            setData(data);
+        } catch (error) {
+            const err = error as AxiosError;
+            const {message} = err;
+            setMsj(message);
+        }
     }, [])
 
-    return {isDataEmpty,data}
+    return { isDataEmpty, data }
 }
-export {useHome}
+export { useHome }
