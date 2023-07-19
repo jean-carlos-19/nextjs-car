@@ -1,6 +1,5 @@
 import {  MouseEventHandler } from "react";
 
-
 interface CustomButtonProps {
     title:string;
     containerStyles? :string;
@@ -36,4 +35,22 @@ interface CarProps{
     year:number
   }
 }
-export type {CustomButtonProps, CustomFilterProps,searchManuFacturerProps, CarProps} 
+
+interface CarDetailsProps{
+  car:CarProps;
+  isOpen:boolean;
+  closeModal:()=>void;
+}
+
+interface SearchButtonProps {
+  handleSubmit:any;
+  otherClass:string; 
+}
+export type {
+  CustomButtonProps, 
+  CustomFilterProps,
+  searchManuFacturerProps, 
+  CarProps, 
+  CarDetailsProps,
+  SearchButtonProps
+} 
