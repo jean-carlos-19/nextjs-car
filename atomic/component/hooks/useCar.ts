@@ -12,6 +12,6 @@ const useCar =({car}:CarProps)=>{
         const rent:string = cars.calculateCarRent(city_mpg,year);
         setCarRent(rent)
     },[])
-    return {carRent, setIsOpen}
+    return {carRent, isOpen,  setIsOpen}
 }
 export {useCar}
