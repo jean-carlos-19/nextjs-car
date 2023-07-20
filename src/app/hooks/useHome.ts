@@ -9,13 +9,13 @@ const useHome = () => {
   const [msj, setMsj] = useState("");
 
   useEffect(() => {
-    searchCar();
+    searchCar("q5","audi");
   }, []);
 
-  const searchCar = useCallback(async () => {
+  const searchCar = useCallback(async (model:string,make:string) => {
     try {
       const rs = await service.search(
-        new URLSearchParams([["model", "corolla"]]),
+        new URLSearchParams([["model", model],["make",make]]),
       );
       const { data } = rs;
       const empty: boolean = Array.isArray(data) || data.length < 1 || !data;
@@ -28,6 +28,6 @@ const useHome = () => {
     }
   }, []);
 
-  return { isDataEmpty, data };
+  return { isDataEmpty, data, searchCar };
 };
 export { useHome };
