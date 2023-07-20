@@ -4,7 +4,7 @@ import { SearchModel } from "@/models";
 
 const search: SearchModel = {
   search: "",
-  model:""
+  make:""
 };
 
 const useSearchBar = () => {
