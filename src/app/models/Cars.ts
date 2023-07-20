@@ -1,7 +1,10 @@
+"use client";
+
+import { CarProps } from "@/types";
+
 class Cars {
-    private static cars:Cars;
-    
-  
+    private static cars: Cars;
+
 
     public calculateCarRent = (city_mpg: number, year: number) => {
         const basePricePerDay = 50; // Base rental price per day in dollars
@@ -42,8 +45,22 @@ class Cars {
 
         return newPathname;
     }
-    public static get_cars = ():Cars=>{
-        if(this.cars === undefined) this.cars = new Cars();
+    public generateCarImage = (car: CarProps, angle?: string): string => {
+
+        const url = new URL("https://cdn.imagin.studio/getimage");
+        const { make, model, year } = car.car;
+        
+        url.searchParams.append("customer", "hrjavascript-mastery")
+        url.searchParams.append('make', make);
+        url.searchParams.append('modelFamily', model.split(" ")[0]);
+        url.searchParams.append('zoomType', 'fullscreen');
+        url.searchParams.append('modelYear', `${year}`);
+        // url.searchParams.append('zoomLevel', zoomLevel);
+        url.searchParams.append('angle', `${angle}`);
+        return `${url}`;
+    }
+    public static get_cars = (): Cars => {
+        if (this.cars === undefined) this.cars = new Cars();
         return this.cars;
     }
     private constructor() { }
