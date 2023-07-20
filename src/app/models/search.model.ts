@@ -1,5 +1,5 @@
 interface SearchModel {
-  search: string;
   make: string;
+  model: string;
 }
 export type { SearchModel };

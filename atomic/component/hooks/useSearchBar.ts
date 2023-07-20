@@ -3,8 +3,8 @@ import { useState } from "react";
 import { SearchModel } from "@/models";
 
 const search: SearchModel = {
-  search: "",
-  make:""
+  make: "",
+  model:""
 };
 
 const useSearchBar = () => {
