@@ -46,11 +46,16 @@ interface SearchButtonProps {
   handleSubmit:any;
   otherClass:string; 
 }
+interface SearchBarProps{
+  searchCar:(model: string, make: string) => Promise<void>
+}
+
 export type {
   CustomButtonProps, 
   CustomFilterProps,
   searchManuFacturerProps, 
   CarProps, 
   CarDetailsProps,
-  SearchButtonProps
+  SearchButtonProps,
+  SearchBarProps
 } 
