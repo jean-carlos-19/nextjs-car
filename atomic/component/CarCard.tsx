@@ -3,10 +3,15 @@ import { CarProps } from "@/types";
 import React from "react";
 import { useCar } from "./hooks";
 import { CustomButton } from '@/atomic/element';
+import { CarDetails } from './CarDetails';
+import {Cars} from '@/models'
+
+const cars:Cars = Cars.get_cars();
 
 const CarCard = (props: CarProps) => {
-  const { city_mpg, drive, model, make, transmission, year } = props.car;
-  const {carRent, setIsOpen} = useCar(props)
+  const {car} = props;
+  const { city_mpg, drive, model, make, transmission, year } = car;
+  const {carRent, isOpen, setIsOpen} = useCar(props)
 
   return (
     <div className="car-card group">
@@ -69,7 +74,7 @@ const CarCard = (props: CarProps) => {
             handleClick={()=>setIsOpen(true)} 
           />
         </div>
-
+        <CarDetails car={props} closeModal={()=>setIsOpen(false)} isOpen={isOpen} />
       </div>
     </div>
   );
