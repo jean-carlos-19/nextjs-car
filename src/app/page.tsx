@@ -1,13 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { CarCard, SearchBar } from "@/atomic/component";
 import { Hero } from "@/atomic/component";
-import { CustomFilter } from "@/atomic/element";
 import { useHome } from "./hooks";
 
 export default function Home() {
-  const { data, isDataEmpty } = useHome();
+  const { data, isDataEmpty, searchCar } = useHome();
 
   return (
     <main className="overflow-hidden">
@@ -18,11 +16,7 @@ export default function Home() {
           <p>Explore the cars you might like </p>
         </div>
         <div className="home__filters">
-          <SearchBar />
-          <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
-          </div>
+          <SearchBar searchCar={searchCar} />
         </div>
         {!isDataEmpty ? (
           <section>

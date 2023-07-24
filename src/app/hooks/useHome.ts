@@ -18,9 +18,10 @@ const useHome = () => {
         new URLSearchParams([["model", model],["make",make]]),
       );
       const { data } = rs;
-      const empty: boolean = Array.isArray(data) || data.length < 1 || !data;
-      setDataEmpty(!empty);
+      const empty: boolean = Array.isArray(data) && data.length < 1;
+      setDataEmpty(empty);
       setData(data);
+      console.log(empty)
     } catch (error) {
       const err = error as AxiosError;
       const { message } = err;

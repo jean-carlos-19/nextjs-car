@@ -2,13 +2,16 @@
 import React from "react";
 import Image from 'next/image'
 import { useSearchBar } from "./hooks";
-import { Formik, FormikProps } from "formik";
-import { SearchButton, SearchManuFacturer } from "@/atomic/element";
+import { Formik } from "formik";
+import { SearchButton, SearchManuFacturer, CustomFilter } from "@/atomic/element";
 import { Validation_Search } from "@/global/validation";
-import {SearchBarProps} from '@/types'
-const SearchBar = (props:SearchBarProps) => {
+import { SearchBarProps } from '@/types'
+import {fuels, yearsOfProduction} from '@/global/data'
 
-  const {searchCar} = props;
+
+const SearchBar = (props: SearchBarProps) => {
+
+  const { searchCar } = props;
   const { entity } = useSearchBar();
   return (
     <Formik
@@ -18,43 +21,60 @@ const SearchBar = (props:SearchBarProps) => {
       onSubmit={(values, formikActions) => {
         formikActions.resetForm();
         formikActions.setSubmitting(false);
-        const {model,make} = values;
-        searchCar(model,make);
+        const { model, make } = values;
+        searchCar(model, make);
       }}
     >
       {(props) => {
-        const { values, errors, touched, handleChange, handleSubmit } = props;
+        const { values, errors, touched, handleChange, setFieldValue, handleSubmit } = props;
         return (
-          <div className="searchbar">
-            <div className="searchbar__item">
-              <SearchManuFacturer
-                value={values.make}
-                handleChangue={handleChange("make")}
-              />
-              <SearchButton handleSubmit={()=>null} otherClass="sm:hidden" />
-            </div>
-            <div className="flex-col space-y-[.5rem]">
-
-            </div>
-            <div className="searchbar__item">
-              <Image 
-                src="/model-icon.png"
-                width={25}
-                height={25}
-                className="absolute w-[20px] h-[20px] ml-4"
-                alt="car model"
+          <>
+            <div className="searchbar">
+              <div className="searchbar__item">
+                <SearchManuFacturer
+                  value={values.make}
+                  handleChangue={handleChange("make")}
                 />
-              <input 
-                type="text" 
-                placeholder="Tiguan"
-                value={values.model} 
-                onChange={handleChange("model")} 
-                className="searchbar__input"
-              />
-              <SearchButton handleSubmit={()=>null} otherClass="sm:hidden" />
+              </div>
+              <div className="flex-col space-y-[.5rem]">
+
+              </div>
+              <div className="searchbar__item">
+                <Image
+                  src="/model-icon.png"
+                  width={25}
+                  height={25}
+                  className="absolute w-[20px] h-[20px] ml-4"
+                  alt="car model"
+                />
+                <input
+                  type="text"
+                  placeholder="Tiguan"
+                  value={values.model}
+                  onChange={handleChange("model")}
+                  className="searchbar__input"
+                />
+              </div>
+              
             </div>
-            <SearchButton handleSubmit={handleSubmit} otherClass="max-sm:hidden" />
-          </div>
+            <div className="home__filter-container">
+              <CustomFilter 
+                title="fuel" 
+                options={fuels} 
+                value={values.fuel_type} 
+                setFieldValue={setFieldValue}
+                id="fuel_type"
+              />
+              <CustomFilter 
+                title="year" 
+                options={yearsOfProduction} 
+                value={values.year} 
+                setFieldValue={setFieldValue}
+                id="year"
+              />
+              <SearchButton handleSubmit={handleSubmit} otherClass="max-sm:visible ml-2" />
+            </div>
+          </>
         );
       }}
     </Formik>

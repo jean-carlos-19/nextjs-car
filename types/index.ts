@@ -1,18 +1,27 @@
+import { SearchModel } from "@/app/models";
+import { FormikErrors } from "formik";
 import {  MouseEventHandler } from "react";
 
 interface CustomButtonProps {
     title:string;
     containerStyles? :string;
     textStyles?:string;
-    rightIcon:string;
+    rightIcon?:string;
     btnType?:"button" | "submit";
     isDisabled?:boolean;
     handleClick?:MouseEventHandler<HTMLButtonElement>;
 }
 
 interface CustomFilterProps{
-    title:"year" | "fuel"
-}
+    id:string;
+    title:"year" | "fuel",
+    options:Array<{
+      title:string,
+      value:string
+    }>,
+    value:string;
+    setFieldValue:(field: string, value: any, shouldValidate?: boolean | undefined) => Promise<void | FormikErrors<SearchModel>>;
+} 
 
 interface searchManuFacturerProps{
     value:string;
