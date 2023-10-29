@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Car Application</h1>
+<h1 align="center">NextJS Car</h1>
 
 <div align="center">
   <h3>
@@ -47,10 +47,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ gh repo clone jean-carlos-19/websit-car-next
+$ gh repo clone https://github.com/jean-carlos-19/nextjs-car
 
 # Access to the mobile folder
-$ cd websit-car-next
+$ cd nextjs-car
 
 # Create environment Variables in .env file
 
@@ -67,6 +67,6 @@ $ yarn dev
 
 ## Contact
 
-- Website [piguavesoft.vercel.app](https://piguavesoft.vercel.app/)
+- Website [piguavesof.com](https://piguavesof.com)
 - GitHub [@PiguaveJean](https://github.com/jean-carlos-19)
 - PhoneNumber [+593 98 3526 509](https://wa.me/593983526509)
